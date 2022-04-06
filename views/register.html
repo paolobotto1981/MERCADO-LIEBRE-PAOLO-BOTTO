@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/8cc76fc728.js" crossorigin="anonymous"></script>
+    <script>
+        function validar(){
+            if(document.getElementById("password").value == document.getElementById("password-verify").value){
+                document.getElementById("password-verify").style.backgroundColor="green"
+                document.getElementById("password-error-message").innerHTML=undefined
+        }
+        else{
+            document.getElementById("password-verify").style.backgroundColor="pink"
+            document.getElementById("password-error-message").innerHTML="Las contraseñas no coinciden"
+            }
+        }
+    </script>
+
+    <title>Registro</title>
+</head>
+
+<body>
+    <header>
+        <div class="top-header">
+            <div class="logo">
+                <img src="images/logo-mercado-liebre.svg" alt="Logo de MercadoLiebre">
+            </div>
+            <div class="form" action="#" method="GET">
+                <div class="input">Buscar productos, marcas y más</div>
+                <div class="submit"><i class="fa fa-search"></i></div>
+            </div>
+            <p><i class="fas fa-hand-holding-usd"></i>Comprá en cuotas y sin tarjeta de crédito</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Tiendas Oficiales</a></li>
+                <li><a href="#">Vender</a></li>
+                <li><a href="#">Ayuda</a></li>
+            </ul>
+            <ul>
+                <li><a href="/register">Creá tu cuenta <i class="far fa-id-card"></i></a></li>
+                <li><a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
+                <li><a href="#">Mis compras <i class="fas fa-shopping-basket"></i></a></li>
+            </ul>
+        </nav>
+        <div class="burger-menu">
+            <i class="fa fa-bars burger"></i>
+        </div>
+    </header>
+
+
+    <form class="formulario-registro" action="/register" method="POST">
+        <div>
+            <label for="nombre"></label>
+            <input type="text" name="nombre" id="nombre" minlength="2">Nombre y apellido:</input>
+        </div>
+        <div>
+            <label for="nombre-de-usuario">Nombre de usuario:</label>
+            <input type="text" name="nombre-de-usuario" id="nombre-de-usuario" minlength="2">
+        </div>
+        <div>
+            <label for="fecha-nacimiento">Fecha de nacimiento:</label>
+            <input type="date" name="fecha-nacimiento">
+        </div>
+        <div>
+            <label for="direccion">Dirección:</label>
+            <input type="text" name="direccion" id="direccion" >
+            <label>
+        </div>
+        <h4>Perfil de usuario</h4>
+        <div class="perfil">
+            <label for="perfil">
+                <input type="radio" name="perfil" value="comprar">Comprar
+                <label for="perfil">
+                    <input type="radio" name="perfil" value="vender">Vender
+        </div>
+        <h4>Intereses</h4>
+        <div class="intereses">
+            <label>
+                <input type="checkbox" name="interés" value="electro">Electro
+            </label>
+            <label>
+                <input type="checkbox" name="interés" value="moda">Moda
+            </label>
+            <label>
+                <input type="checkbox" name="interés" value="hogar">Hogar
+            </label>
+            <input type="checkbox" name="interés" value="juguetería">
+            <label>Juguetería</label>
+            <input type="checkbox" name="interés" value="vida sana">
+            <label>Vida sana</label>
+        </div>
+        <input type="file" name="foto" id="foto" accept=".jpg, .png">
+        <div class="passwords">
+            <input type="password" name="contraseña" id="contraseña" minlength="8"
+                placeholder="Escribí tu contraseña">
+            <input type="password" name="confirmar-contraseña" id="confirmar-contraseña" minlength="8"
+                placeholder="Repite tu contraseña" onkeyup="validar()">
+                <div>
+                    <span id="error-contraseña"></span>
+                </div>
+        </div>
+        <button type="submit" name="enviar">Enviar</button>
+        <button type="reset" name="borrar">Borrar</button>
+</body>
+
+</html>
